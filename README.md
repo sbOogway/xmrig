@@ -36,3 +36,27 @@ The preferred way to configure the miner is the [JSON config file](https://xmrig
 * support@xmrig.com
 * [reddit](https://www.reddit.com/user/XMRig/)
 * [twitter](https://twitter.com/xmrig_dev)
+
+## building on alpine 
+```
+apk add --no-cache git make cmake libstdc++ gcc g++ libuv-dev openssl-dev hwloc-dev
+
+# 1. Create a 8GB file
+sudo fallocate -l 8G /var/swapfile
+
+# 2. Set strict permissions (security requirement)
+sudo chmod 600 /var/swapfile
+
+# 3. Format the file into a swap area
+sudo mkswap /var/swapfile
+
+# 4. Activate the swap file immediately
+sudo swapon /var/swapfile
+
+# 5. Make the change permanent after reboots
+echo '/var/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+
+# 6. Verify the swap is active
+swapon --show
+
+```
