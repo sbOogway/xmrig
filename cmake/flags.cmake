@@ -56,6 +56,11 @@ if (CMAKE_CXX_COMPILER_ID MATCHES GNU)
         set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
     endif()
 
+    if (WITH_ALPINE_MUSL)
+        add_definitions(-DXMRIG_ALPINE_MUSL)
+        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static -s")
+    endif()
+
     add_definitions(-D_GNU_SOURCE -DHAVE_BUILTIN_CLEAR_CACHE)
 
 elseif (CMAKE_CXX_COMPILER_ID MATCHES MSVC)
@@ -98,6 +103,11 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES Clang)
 
     if ((WIN32 AND ARM_TARGET) OR BUILD_STATIC)
         set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
+    endif()
+
+    if (WITH_ALPINE_MUSL)
+        add_definitions(-DXMRIG_ALPINE_MUSL)
+        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static -s")
     endif()
 endif()
 

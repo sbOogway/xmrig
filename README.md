@@ -60,3 +60,9 @@ echo '/var/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 swapon --show
 
 ```
+
+```
+XMRIG_DEPS=/home/oogway/git_clones/xmrig/deps cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/aarch64-linux-gnu.cmake -DBUILD_STATIC=ON -DWITH_OPENCL=OFF -DWITH_CUDA=OFF -DWITH_HWLOC=OFF 2>&1
+
+cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/aarch64-linux-gnu.cmake -DBUILD_STATIC=ON -DWITH_OPENCL=OFF -DWITH_CUDA=OFF -DWITH_HWLOC=OFF 2>&1
+```
